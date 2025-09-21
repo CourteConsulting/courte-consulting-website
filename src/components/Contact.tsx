@@ -6,6 +6,7 @@ const Contact: React.FC = () => {
     name: '',
     email: '',
     business: '',
+    company: '',
     project: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,7 +16,7 @@ const Contact: React.FC = () => {
     // Handle form submission here
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', business: '', project: '' });
+    setFormData({ name: '', email: '', business: '', company: '', project: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -116,20 +117,35 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-text-charcoal mb-2">
-                      Email Address *
+                    <label htmlFor="business" className="block text-sm font-semibold text-text-charcoal mb-2">
+                      Business Type *
                     </label>
                     <input
-                      type="email"
-                      id="email"
+                      type="text"
                       id="business"
                       name="business"
                       value={formData.business}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
-                      placeholder="Your Business"
+                      placeholder="Your Business Type"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-text-charcoal mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
+                    placeholder="your@email.com"
+                  />
                 </div>
 
                 <div>
