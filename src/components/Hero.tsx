@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
+          src="/images/hero/business-background.jpg"
           alt="Modern business meeting"
           className="w-full h-full object-cover"
         />

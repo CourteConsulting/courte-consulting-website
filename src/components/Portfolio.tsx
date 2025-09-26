@@ -31,39 +31,39 @@ const testimonials = [
 const websites = [
   {
     url: 'foieviare.com',
-    title: 'Foie Viare',
+    title: 'Foieviare',
     category: 'E-commerce & Branding',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/foieviare-website-development.png'
   },
   {
     url: 'garagegirlsjewelry.com',
     title: 'Garage Girls Jewelry',
     category: 'E-commerce & Product Design',
-    image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/garage-girls-jewelery-website-development.png'
   },
   {
     url: 'chefjamestrees.com',
     title: 'Chef James Trees',
     category: 'Restaurant & Hospitality',
-    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/chef-james-trees-website-development.png'
   },
   {
     url: 'vegasunstripped.com',
     title: 'Vegas Unstripped',
     category: 'Travel & Entertainment',
-    image: 'https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/vegas-unstripped-website-development.png'
   },
   {
     url: 'bayles.law',
     title: 'Bayles Law',
     category: 'Legal Services',
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/blg-website-development.png'
   },
   {
     url: 'shoetieai.com',
-    title: 'ShoeTie AI',
+    title: 'Shoetie AI',
     category: 'Technology & AI',
-    image: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    image: '/images/portfolio/website-designs/shoetie-ai-website-development.png'
   },
   {
     url: 'seggswater.com',
@@ -76,6 +76,30 @@ const websites = [
     title: 'Tee Box Tactics',
     category: 'Sports & Recreation',
     image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+  },
+  {
+    url: 'kathleenandcompanystaging.com',
+    title: 'Kathleen & Company Staging',
+    category: 'Home Staging & Design',
+    image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+  },
+  {
+    url: 'eliteluxxhomeservices.com',
+    title: 'Elite Luxx Home Services',
+    category: 'Home Services & Maintenance',
+    image: 'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+  },
+  {
+    url: 'eliteluxxfitness.com',
+    title: 'Elite Luxx Fitness',
+    category: 'Health & Fitness',
+    image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+  },
+  {
+    url: 'arisdemo.com',
+    title: 'Aris Demo',
+    category: 'Technology & Demos',
+    image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
   }
 ];
 

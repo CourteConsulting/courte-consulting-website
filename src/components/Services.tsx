@@ -6,28 +6,28 @@ const services = [
     icon: Globe,
     title: 'Website Development & Design',
     description: 'Mobile-responsive, conversion-focused websites optimized for growth on Shopify, Squarespace, WordPress, and custom builds.',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+    image: '/images/services/website-development.jpg',
     features: ['Custom Development', 'Mobile Responsive', 'Conversion Focused', 'Platform Expertise']
   },
   {
     icon: Megaphone,
     title: 'Digital Marketing & Automation',
     description: 'Strategic campaigns that drive measurable results through social media, SEO, ads, email marketing, and chatbot automation.',
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+    image: '/images/services/digital-marketing.jpg',
     features: ['Social Media Management', 'SEO & Ads', 'Email Marketing', 'Chatbot Automation']
   },
   {
     icon: Palette,
     title: 'Branding & Graphic Design',
     description: 'Visual storytelling and identity systems that align with your brand mission, from logos to full-scale collateral.',
-    image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+    image: '/images/services/branding-design.jpg',
     features: ['Logo Design', 'Brand Identity', 'Packaging Design', 'Marketing Collateral']
   },
   {
     icon: Package,
     title: 'Product Design & Manufacturing',
     description: 'A-Z product development across jewelry, skincare, apparel, and hospitality with CAD design and production management.',
-    image: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+    image: '/images/services/product-development.jpg',
     features: ['CAD Design', 'Manufacturing Partners', 'Packaging Solutions', 'Production Management']
   }
 ];
