@@ -14,10 +14,24 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ firstName: '', lastName: '', email: '', company: '', business: '', project: '' });
+
+    const form = e.target as HTMLFormElement;
+
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form) as any).toString(),
+    })
+      .then(() => {
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 3000);
+        setFormData({ firstName: '', lastName: '', email: '', company: '', business: '', project: '' });
+      })
+      .catch((error) => {
+        alert('Error submitting form. Please try again.');
+        console.error(error);
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
