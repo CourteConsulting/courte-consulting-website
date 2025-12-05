@@ -12,19 +12,19 @@ const testimonials = [
     quote: "You were instrumental and a huge inspiration in helping me take that first big step.",
     author: 'Danny Costanzo',
     company: 'Plant Based Mafia',
-    image: 'https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg?auto=compress&cs=tinysrgb&w=600&h=400'
+    image: '/images/testimonials/danny-costanza-testimonial.png'
   },
   {
     quote: "I can't begin to express my gratitude to you for creating my website and marketing SEO funnels for my start up. The professionalism, care, and consideration for my business needs has been superb.",
     author: 'Kisore Alquamdi',
     company: 'Startup Founder',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600&h=400'
+    image: '/images/testimonials/kisore-alquamdi-testimonial.png'
   },
   {
     quote: "Courte Consulting was able to save me an extensive amount of money on branding and promotional products for my business. I couldn't have scaled my business and received the profit margins I did, without them.",
     author: 'Laura Hangenfeld',
     company: 'Just Jump',
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=400'
+    image: '/images/testimonials/laura-hagenfeld-testimonial.png'
   }
 ];
 
@@ -66,16 +66,16 @@ const websites = [
     image: '/images/portfolio/website-designs/shoetie-ai-website-development.png'
   },
   {
-    url: 'seggswater.com',
-    title: 'Seggs Water',
-    category: 'Health & Wellness',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    url: 'northwestautoservice.com',
+    title: 'Northwest Auto Service',
+    category: 'Automotive Services',
+    image: '/images/portfolio/website-designs/northwest-auto-website.png'
   },
   {
-    url: 'teeboxtactics.com',
-    title: 'Tee Box Tactics',
-    category: 'Sports & Recreation',
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800'
+    url: 'danamanciagli.com',
+    title: 'Dana Manciagli',
+    category: 'Career Coaching & Consulting',
+    image: '/images/portfolio/website-designs/dana-manciagli-website.png'
   },
   {
     url: 'kathleenandcompanystaging.com',
@@ -104,6 +104,13 @@ const websites = [
 ];
 
 const Testimonials: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="portfolio" className="py-20 lg:py-32 bg-gradient-to-br from-deep-navy to-deep-navy-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,13 +131,13 @@ const Testimonials: React.FC = () => {
               className="group bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-500 hover:-translate-y-2"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden bg-white/5">
                 <img
                   src={testimonial.image}
                   alt={`${testimonial.author} - ${testimonial.company}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
                 <div className="absolute top-4 left-4">
                   <div className="bg-primary-orange text-white rounded-full p-2">
                     <Quote className="h-4 w-4" />
@@ -155,7 +162,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Website Portfolio Section */}
-        <div className="text-center mb-16">
+        <div id="featured-websites" className="text-center mb-16">
           <h3 className="text-3xl font-bold text-white mb-6">
             Featured <span className="text-primary-orange">Websites</span>
           </h3>
@@ -221,14 +228,16 @@ const Testimonials: React.FC = () => {
                   <Package className="h-8 w-8 text-primary-orange" />
                 </div>
                 <h4 className="text-white font-semibold mb-2">{category}</h4>
-                <p className="text-gray-400 text-sm">CAD design, manufacturing partnerships, and production management</p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-primary-orange text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-orange-dark transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+          <button
+            onClick={scrollToContact}
+            className="bg-primary-orange text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-orange-dark transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+          >
             Start Your Project Today
           </button>
         </div>

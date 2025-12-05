@@ -1,9 +1,26 @@
 import React from 'react';
-import { MapPin, Mail, Phone, ArrowUp } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Mail, ArrowUp, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home page with hash
+      navigate(`/#${sectionId}`);
+    } else {
+      // If on home page, scroll to section
+      const element = document.getElementById(sectionId.toLowerCase());
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -18,18 +35,19 @@ const Footer: React.FC = () => {
               Courte<span className="text-primary-orange">.</span>
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-              Over 15 years of expertise in digital marketing, website design, and product development. 
+              Over 15 years of expertise in digital marketing, website design, and product development.
               Helping businesses grow with strategy, creativity, and measurable results.
             </p>
             <div className="flex space-x-4">
-              {['LinkedIn', 'Twitter', 'Facebook', 'Instagram'].map((social) => (
-                <button
-                  key={social}
-                  className="bg-white/10 hover:bg-primary-orange rounded-full p-2 transition-all duration-300 hover:scale-110"
-                >
-                  <div className="w-5 h-5"></div>
-                </button>
-              ))}
+              <a
+                href="https://www.linkedin.com/in/ariannacourte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-primary-orange rounded-full p-2 transition-all duration-300 hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-white" />
+              </a>
             </div>
           </div>
 
@@ -37,9 +55,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['Services', 'About', 'Testimonials', 'Contact', 'Portfolio'].map((link) => (
+              {['Services', 'About', 'Portfolio', 'Contact'].map((link) => (
                 <li key={link}>
-                  <button className="text-gray-300 hover:text-primary-orange transition-colors duration-300">
+                  <button
+                    onClick={() => scrollToSection(link.toLowerCase())}
+                    className="text-gray-300 hover:text-primary-orange transition-colors duration-300"
+                  >
                     {link}
                   </button>
                 </li>
@@ -51,19 +72,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-3">
-              <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-primary-orange mt-0.5 mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">
-                  123 Business Plaza<br />
-                  New York, NY 10001
-                </span>
-              </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-primary-orange mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">hello@courteconsulting.com</span>
-              </div>
-              <div className="flex items-center">
-                <span className="text-gray-300 text-sm">Available for consultation calls</span>
+                <a href="mailto:info@courteconsulting.com" className="text-gray-300 text-sm hover:text-primary-orange transition-colors">
+                  info@courteconsulting.com
+                </a>
               </div>
             </div>
           </div>
@@ -71,7 +84,23 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} Courte Consulting. All rights reserved. | Privacy Policy | Terms of Service
+            ©{' '}
+            <a
+              href="https://courteconsulting.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary-orange transition-colors"
+            >
+              {currentYear} Courte Consulting
+            </a>
+            . All rights reserved. |{' '}
+            <Link to="/privacy-policy" className="hover:text-primary-orange transition-colors">
+              Privacy Policy
+            </Link>{' '}
+            |{' '}
+            <Link to="/terms-of-service" className="hover:text-primary-orange transition-colors">
+              Terms of Service
+            </Link>
           </p>
           <button
             onClick={scrollToTop}

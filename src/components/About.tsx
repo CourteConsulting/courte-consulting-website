@@ -2,7 +2,7 @@ import React from 'react';
 import { Award, Users, Clock, Target } from 'lucide-react';
 
 const stats = [
-  { icon: Users, value: '100+', label: 'Projects Completed' },
+  { icon: Users, value: '300+', label: 'Projects Completed' },
   { icon: Award, value: '15+', label: 'Years Experience' },
   { icon: Clock, value: '24/7', label: 'Project Support' },
   { icon: Target, value: '100%', label: 'Client Satisfaction' }

@@ -33,6 +33,13 @@ const services = [
 ];
 
 const Services: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="py-20 lg:py-32 bg-accent-light-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,8 +90,11 @@ const Services: React.FC = () => {
                   ))}
                 </div>
 
-                <button className="mt-6 text-primary-orange font-semibold hover:text-primary-orange-dark transition-colors duration-300 flex items-center group self-start">
-                  Learn More 
+                <button
+                  onClick={scrollToContact}
+                  className="mt-6 text-primary-orange font-semibold hover:text-primary-orange-dark transition-colors duration-300 flex items-center group self-start"
+                >
+                  Learn More
                   <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </button>
               </div>

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle, Linkedin } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    business: '',
     company: '',
+    business: '',
     project: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,7 +17,7 @@ const Contact: React.FC = () => {
     // Handle form submission here
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', business: '', company: '', project: '' });
+    setFormData({ firstName: '', lastName: '', email: '', company: '', business: '', project: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,43 +56,24 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-charcoal mb-1">Email Us</h4>
-                    <p className="text-text-charcoal/70">arianna@courteconsulting.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-primary-orange/10 rounded-lg p-3 mr-4">
-                    <Phone className="h-6 w-6 text-primary-orange" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-text-charcoal mb-1">Call Us</h4>
-                    <p className="text-text-charcoal/70">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-primary-orange/10 rounded-lg p-3 mr-4">
-                    <MapPin className="h-6 w-6 text-primary-orange" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-text-charcoal mb-1">Visit Us</h4>
-                    <p className="text-text-charcoal/70">123 Business Plaza<br />New York, NY 10001</p>
+                    <a href="mailto:info@courteconsulting.com" className="text-text-charcoal/70 hover:text-primary-orange transition-colors">
+                      info@courteconsulting.com
+                    </a>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-8 border-t border-gray-200">
                 <p className="text-sm text-text-charcoal/70 mb-4">Follow us for insights and updates:</p>
-                <div className="flex space-x-4">
-                  {['LinkedIn', 'Twitter', 'Facebook'].map((social) => (
-                    <button
-                      key={social}
-                      className="text-text-charcoal/50 hover:text-primary-orange transition-colors duration-300"
-                    >
-                      {social}
-                    </button>
-                  ))}
-                </div>
+                <a
+                  href="https://www.linkedin.com/in/ariannacourte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0A66C2] text-white px-4 py-2 rounded hover:bg-[#004182] transition-colors duration-300"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  <span className="font-semibold">LinkedIn</span>
+                </a>
               </div>
             </div>
           </div>
@@ -99,35 +81,50 @@ const Contact: React.FC = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <h3 className="text-2xl font-bold text-text-charcoal mb-8">Contact Us</h3>
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-text-charcoal mb-2">
-                      Business Name
+                    <label htmlFor="firstName" className="block text-sm font-semibold text-text-charcoal mb-2">
+                      First Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
-                      placeholder="John Doe"
+                      placeholder="John"
                     />
                   </div>
                   <div>
-                    <label htmlFor="business" className="block text-sm font-semibold text-text-charcoal mb-2">
-                      Business Type *
+                    <label htmlFor="lastName" className="block text-sm font-semibold text-text-charcoal mb-2">
+                      Last Name *
                     </label>
                     <input
                       type="text"
-                      id="business"
-                      name="business"
-                      value={formData.business}
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
-                      placeholder="Your Business Type"
+                      placeholder="Doe"
                     />
                   </div>
                 </div>
@@ -160,6 +157,21 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
                     placeholder="Your Company"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="business" className="block text-sm font-semibold text-text-charcoal mb-2">
+                    Business Type
+                  </label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    value={formData.business}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-orange focus:border-transparent transition-all duration-300"
+                    placeholder="Your Business Type"
                   />
                 </div>
 

@@ -28,11 +28,11 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           <div className="flex-shrink-0">
-            <h1 className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-text-charcoal' : 'text-white'
-            }`}>
-              Courte<span className="text-primary-orange">.</span>
-            </h1>
+            <img
+              src="/images/portfolio/logos/courte-consulting-cropped.png"
+              alt="Courte Consulting"
+              className="h-12 lg:h-14 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
